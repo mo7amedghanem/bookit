@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bookit/model/provider_model.dart';
 import 'package:bookit/ui/apptheme.dart';
-class Hospitals extends StatelessWidget {
+
+class Category extends StatelessWidget {
+  final String category ;
+  final String name ;
+  final String ratings ;
+
+  const Category({Key key, this.category, this.name, this.ratings}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +21,7 @@ class Hospitals extends StatelessWidget {
                     physics: ScrollPhysics(parent: PageScrollPhysics()),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
+
                     itemCount: activities.length,
                     itemBuilder: (BuildContext context, int index) {
 //                      ProviderActivity activity = activities[index];
@@ -42,26 +49,26 @@ class Hospitals extends StatelessWidget {
                                           children: <Widget>[
                                             Padding(padding:  EdgeInsets.only(top: 5),),
                                             Text(
-                                              'مستشفى',
+                                              category,
                                               style: TextStyle(
                                                 fontFamily: 'font1',
-                                                fontSize: 10,
+                                                fontSize: 12,
                                                 color: Colors.blueGrey,
                                               ),
                                               textAlign: TextAlign.right,
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              'السعودى الألمانى الدمياطى ^_^',
+                                              name,
                                               style: TextStyle(
                                                   fontFamily: 'font1',
-                                                  fontSize: 14,
+                                                  fontSize: 15,
                                                   color: Colors.black),
                                               textAlign: TextAlign.right,
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              '4.7/5',
+                                              ratings,
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 10,
@@ -104,3 +111,16 @@ class Hospitals extends StatelessWidget {
     );
   }
 }
+
+//Widget _listBuilder(BuildContext context, int index) {
+//  return Card(
+//    child: Column(
+//      children: <Widget>[
+//        Text(activities[index].email),
+//        Container(
+//            child: Text(activities[index].mobile)
+//        )
+//      ],
+//    ),
+//  );
+//}

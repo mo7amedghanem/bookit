@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:bookit/screens/categories/centers.dart';
-import 'package:bookit/screens/categories/clinics.dart';
-import 'package:bookit/screens/categories/garages.dart';
-import 'package:bookit/screens/categories/hair_salons.dart';
-import 'package:bookit/screens/categories/hospitals.dart';
-import 'package:bookit/screens/categories/restaurants.dart';
-import 'package:bookit/screens/categories/wedding_halls.dart';
+import 'package:bookit/screens/categories/categories.dart';
+
 import 'package:bookit/ui/apptheme.dart';
 
 TextEditingController searchController = new TextEditingController();
@@ -20,12 +15,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex2 = 1;
-  int _selectedIndex = 6 ;
+  int _selectedIndex2 ;
+  int _selectedIndex = 5 ;
   final PageStorageBucket bucket = PageStorageBucket();
 
   final List<Widget> _children = [
-    Clinics(), Restaurants(),Garages(),Centers(),WeddingHalls(),HairSalons(),Hospitals()
+    Category(name: 'د / أسماء مجدى لورق العنب',category:'عيادة' ,ratings: '5/5',), Category(
+      name: 'محمد غانم للتصوير',category:'مطعم' ,ratings: '4.9/5',
+    ),Category(
+      name: 'الحاج متولى جدا',category: 'جراج',ratings: '4.3/5',
+    ),Category(
+      name: 'تيكى - Tiki',category: 'سنتر',ratings: '4.6/5',
+    ),Category(
+      name: 'صلاح رشاد الشبح',category: 'قاعة',ratings: '4.8/5',
+    ),Category(
+      name: 'البرنس أحمد المحلاوى',category: 'صالون',ratings: '4.8/5',
+    ),
   ];
 
 
@@ -35,12 +40,17 @@ class _HomePageState extends State<HomePage> {
     });
     if(_selectedIndex2==2){
       Navigator.of(context).pushNamed('/Settings');
+    }else if(_selectedIndex2 == 0){
+    Navigator.of(context).pushNamed('/Chat');
+
+    }else{
+      Navigator.of(context);
     }
   }
 
 //  int _currentTap = 0;
   List<String> _icons = [
-    'عيادات', 'مطاعم', 'جراجات', 'سنترز','قاعات أفراح','صالونات حلاقة','مستشفيات'
+    'عيادات', 'مطاعم', 'جراجات', 'سنترز','قاعات أفراح','صالونات حلاقة',
   ];
 
   Widget _buildIcon(int index){
@@ -181,7 +191,8 @@ class _HomePageState extends State<HomePage> {
                     flex: 8,
                     child: SingleChildScrollView(
                       key: PageStorageKey<int>(_selectedIndex),
-                      child:PageStorage(bucket: bucket, child: _children[_selectedIndex]),
+                      child:PageStorage(bucket: bucket,
+                          child: _children[_selectedIndex]),
 
                       scrollDirection: Axis.vertical,
                     ),
