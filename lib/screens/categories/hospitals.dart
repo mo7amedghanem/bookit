@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bookit/model/provider_model.dart';
 import 'package:bookit/ui/apptheme.dart';
+class Hospitals extends StatelessWidget {
 
-class ProviderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,16 +12,19 @@ class ProviderCard extends StatelessWidget {
           Padding(
               child: Container(
                 child: ListView.builder(
+                    physics: ScrollPhysics(parent: PageScrollPhysics()),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-
                     itemCount: activities.length,
                     itemBuilder: (BuildContext context, int index) {
 //                      ProviderActivity activity = activities[index];
                       return Container(
                         height: 90,
                         child: InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.of(context).pushNamed('/ProviderScreen');
+
+                          },
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(45)),
@@ -42,17 +45,17 @@ class ProviderCard extends StatelessWidget {
                                               'مستشفى',
                                               style: TextStyle(
                                                 fontFamily: 'font1',
-                                                fontSize: 12,
-                                                color: Colors.black,
+                                                fontSize: 10,
+                                                color: Colors.blueGrey,
                                               ),
                                               textAlign: TextAlign.right,
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              'السعودى الألمانى',
+                                              'السعودى الألمانى الدمياطى ^_^',
                                               style: TextStyle(
                                                   fontFamily: 'font1',
-                                                  fontSize: 15,
+                                                  fontSize: 14,
                                                   color: Colors.black),
                                               textAlign: TextAlign.right,
                                               textDirection: TextDirection.rtl,
@@ -62,7 +65,7 @@ class ProviderCard extends StatelessWidget {
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 10,
-                                                  color: Colors.black),
+                                                  color: awesome),
                                               textAlign: TextAlign.right,
                                             ),
                                           ],
@@ -70,6 +73,7 @@ class ProviderCard extends StatelessWidget {
                                       )),
                                   CircleAvatar(
                                     radius: 32,
+                                    child: Image.asset('images/default_image.png'),
                                     backgroundColor: grey1,
                                   ),
                                   Padding(
@@ -100,16 +104,3 @@ class ProviderCard extends StatelessWidget {
     );
   }
 }
-
-//Widget _listBuilder(BuildContext context, int index) {
-//  return Card(
-//    child: Column(
-//      children: <Widget>[
-//        Text(activities[index].email),
-//        Container(
-//            child: Text(activities[index].mobile)
-//        )
-//      ],
-//    ),
-//  );
-//}

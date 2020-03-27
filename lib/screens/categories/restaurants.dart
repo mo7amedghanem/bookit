@@ -1,17 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bookit/widgets/provider_model.dart';
+import 'package:bookit/model/provider_model.dart';
 import 'package:bookit/ui/apptheme.dart';
-
-class Category extends StatelessWidget {
-  final String category ;
-  final String name ;
-  final String ratings ;
-
-  const Category({Key key, this.category, this.name, this.ratings}) : super(key: key);
+class Restaurants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       child: Column(
         children: <Widget>[
@@ -28,10 +23,7 @@ class Category extends StatelessWidget {
                       return Container(
                         height: 90,
                         child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).pushNamed('/ProviderScreen');
-
-                          },
+                          onTap: (){},
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(45)),
@@ -49,7 +41,7 @@ class Category extends StatelessWidget {
                                           children: <Widget>[
                                             Padding(padding:  EdgeInsets.only(top: 5),),
                                             Text(
-                                              category,
+                                              'مطعم',
                                               style: TextStyle(
                                                 fontFamily: 'font1',
                                                 fontSize: 12,
@@ -59,7 +51,7 @@ class Category extends StatelessWidget {
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              name,
+                                              'محمد غانم للتصوير',
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 15,
@@ -68,7 +60,7 @@ class Category extends StatelessWidget {
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              ratings,
+                                              '4.9/5',
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 10,
@@ -111,16 +103,3 @@ class Category extends StatelessWidget {
     );
   }
 }
-
-//Widget _listBuilder(BuildContext context, int index) {
-//  return Card(
-//    child: Column(
-//      children: <Widget>[
-//        Text(activities[index].email),
-//        Container(
-//            child: Text(activities[index].mobile)
-//        )
-//      ],
-//    ),
-//  );
-//}

@@ -1,15 +1,9 @@
+import 'package:bookit/widgets/provider_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bookit/widgets/provider_model.dart';
 import 'package:bookit/ui/apptheme.dart';
 
-class Category extends StatelessWidget {
-  final String category ;
-  final String name ;
-  final String ratings ;
-
-  const Category({Key key, this.category, this.name, this.ratings}) : super(key: key);
-
+class ProviderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +12,6 @@ class Category extends StatelessWidget {
           Padding(
               child: Container(
                 child: ListView.builder(
-                    physics: ScrollPhysics(parent: PageScrollPhysics()),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
 
@@ -28,10 +21,7 @@ class Category extends StatelessWidget {
                       return Container(
                         height: 90,
                         child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).pushNamed('/ProviderScreen');
-
-                          },
+                          onTap: (){},
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(45)),
@@ -49,17 +39,17 @@ class Category extends StatelessWidget {
                                           children: <Widget>[
                                             Padding(padding:  EdgeInsets.only(top: 5),),
                                             Text(
-                                              category,
+                                              'مستشفى',
                                               style: TextStyle(
                                                 fontFamily: 'font1',
                                                 fontSize: 12,
-                                                color: Colors.blueGrey,
+                                                color: Colors.black,
                                               ),
                                               textAlign: TextAlign.right,
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              name,
+                                              'السعودى الألمانى',
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 15,
@@ -68,11 +58,11 @@ class Category extends StatelessWidget {
                                               textDirection: TextDirection.rtl,
                                             ),
                                             Text(
-                                              ratings,
+                                              '4.7/5',
                                               style: TextStyle(
                                                   fontFamily: 'font1',
                                                   fontSize: 10,
-                                                  color: awesome),
+                                                  color: Colors.black),
                                               textAlign: TextAlign.right,
                                             ),
                                           ],
@@ -80,7 +70,6 @@ class Category extends StatelessWidget {
                                       )),
                                   CircleAvatar(
                                     radius: 32,
-                                    child: Image.asset('images/default_image.png'),
                                     backgroundColor: grey1,
                                   ),
                                   Padding(

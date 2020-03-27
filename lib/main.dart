@@ -1,4 +1,3 @@
-import 'package:bookit/screens/home/test.dart';
 import 'package:flutter/material.dart';
 import 'package:bookit/home_Page.dart';
 import 'package:bookit/screens/home/Profile.dart';
@@ -34,8 +33,6 @@ class MyApp extends StatelessWidget {
         '/HomePage' : (BuildContext context) =>new HomePage(),
         '/Profile' : (BuildContext context) =>new Profile(),
         '/Settings' : (BuildContext context) =>new Settings(),
-        '/Chat' : (BuildContext context) =>new Chat(),
-
 
 
 
